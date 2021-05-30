@@ -22,6 +22,6 @@ devtools::install_github("mglev1n/annotateR")
 
 ## Reference Datasets
 
-| dataset              |     nrow | ncol | format  | columns                          |
-|:---------------------|---------:|-----:|:--------|:---------------------------------|
-| 1000 Genomes Phase 3 | 84805772 |    6 | parquet | chr, pos, rsid, ref, alt, marker |
+| dataset              | file\_size |     nrow | ncol | format  | columns                          |
+|:---------------------|-----------:|---------:|-----:|:--------|:---------------------------------|
+| 1000 Genomes Phase 3 |      1.75G | 84805772 |    6 | parquet | chr, pos, rsid, ref, alt, marker |

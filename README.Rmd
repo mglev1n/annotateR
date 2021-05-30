@@ -37,8 +37,9 @@ devtools::install_github("mglev1n/annotateR")
 ref_1kg <- arrow::open_dataset("../RawData/1kg_all_phase3_snps_markers/1kg_all_phase3_snps_marker.parquet")
 
 dplyr::tribble(
-  ~dataset, ~nrow, ~ncol, ~format, ~columns,
-  "1000 Genomes Phase 3", ref_1kg$num_rows, ref_1kg$num_cols, as.character(ref_1kg$format), glue::glue_collapse(ref_1kg$schema$names, sep = ", ")
+  ~dataset, ~file_size, ~nrow, ~ncol, ~format, ~columns,
+  "1000 Genomes Phase 3", fs::file_size("../RawData/1kg_all_phase3_snps_markers/1kg_all_phase3_snps_marker.parquet", fail = TRUE), ref_1kg$num_rows, ref_1kg$num_cols, as.character(ref_1kg$format), glue::glue_collapse(ref_1kg$schema$names, sep = ", ")
 ) %>%
   knitr::kable()
+
 ```
