@@ -10,6 +10,7 @@
 #' @param progress_bar enable progress bar (default = TRUE)
 #' @param ref_dataset path to folder containing reference dataset in .parquet format, which will be rapidly loaded using the arrow::open_dataset() function
 #' @return Tibble containing original dataset + additional column including rsids
+#' @export
 
 annotate_rsids <- function(df, chr_col = chr, pos_col = pos, effect_allele_col = EFFECT_ALLELE, other_allele_col = OTHER_ALLELE, multi_thread = TRUE, progress_bar = TRUE, ref_dataset = NA) {
 

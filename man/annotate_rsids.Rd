@@ -30,7 +30,7 @@ annotate_rsids(
 
 \item{progress_bar}{enable progress bar (default = TRUE)}
 
-\item{ref_dataset}{path to folder containing reference dataset}
+\item{ref_dataset}{path to folder containing reference dataset in .parquet format, which will be rapidly loaded using the arrow::open_dataset() function}
 }
 \value{
 Tibble containing original dataset + additional column including rsids
