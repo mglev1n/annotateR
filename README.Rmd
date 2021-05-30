@@ -11,6 +11,9 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
+library(tidyverse)
+library(gt)
 ```
 
 # annotateR
@@ -28,11 +31,19 @@ The development version can be installed from [GitHub](https://github.com/) with
 # install.packages("devtools")
 devtools::install_github("mglev1n/annotateR")
 ```
-## Example
 
-This is a basic example which shows you how to solve a common problem:
+## Reference Datasets
 
-```{r example}
-library(annotateR)
-## basic example code
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ref_1kg <- arrow::open_dataset("../RawData/1kg_all_phase3_snps_markers/1kg_all_phase3_snps_marker.parquet")
+
+dplyr::tribble(
+  ~dataset, ~nrow, ~ncol, ~format, ~columns,
+  "1000 Genomes Phase 3", ref_1kg$num_rows, ref_1kg$num_cols, as.character(ref_1kg$format), glue::glue_collapse(ref_1kg$schema$names, sep = ", ")
+) %>%
+  gt::gt() %>%
+  gt::tab_style(
+    style = gt::cell_text(weight = "bold"),
+    locations = gt::cells_column_labels(everything())
+  )
 ```
