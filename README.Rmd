@@ -13,7 +13,6 @@ knitr::opts_chunk$set(
 )
 
 library(tidyverse)
-library(gt)
 ```
 
 # annotateR
@@ -41,9 +40,5 @@ dplyr::tribble(
   ~dataset, ~nrow, ~ncol, ~format, ~columns,
   "1000 Genomes Phase 3", ref_1kg$num_rows, ref_1kg$num_cols, as.character(ref_1kg$format), glue::glue_collapse(ref_1kg$schema$names, sep = ", ")
 ) %>%
-  gt::gt() %>%
-  gt::tab_style(
-    style = gt::cell_text(weight = "bold"),
-    locations = gt::cells_column_labels(everything())
-  )
+  knitr::kable()
 ```
