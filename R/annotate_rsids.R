@@ -36,7 +36,7 @@ annotate_rsids <- function(df, chr_col = chr, pos_col = pos, effect_allele_col =
     p(message = glue("Reading chromosome {chrom}"), class = "sticky")
     # cli::cli_alert_info("Reading chromosome {chrom}")
 
-    annotation_df <- open_dataset("../RawData/1kg_all_phase3_snps_markers/") %>%
+    annotation_df <- open_dataset(ref_dataset) %>%
       filter(pos %in% unique(dat$pos)) %>%
       filter(chr == chrom) %>%
       select(pos, ref, alt, rsid)  %>%
